@@ -15,11 +15,6 @@
 
   &__contact {
     background-color: globals.$white;
-    display: flex;
-    align-items: center;
-    max-height: util.rem(30);
-    justify-content: space-evenly;
-    padding: util.rem(3);
   }
 
   &__contact-image-container {
@@ -27,30 +22,58 @@
     align-items: center;
   }
 
-  &__content-image {
-    margin-right: util.rem(4);
+  &__contact-image {
+    margin-right: util.rem(5);
+
+    @include util.breakpoint(medium) {
+      min-width: 32px;
+    }
   }
 
   &__contact-content {
     font-size: util.rem(12);
   }
+
+  &__contact-info {
+    font-size: util.rem(12);
+    color: globals.$darkGray;
+
+    @include util.breakpoint(medium) {
+      font-size: util.rem(14);
+    }
+  }
+
+  &__contact-body {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .nav {
   position: absolute;
+  inset: 0;
   top: 100px;
-  left: 0;
-  right: 0;
   height: calc(100vh - 100px);
   overflow: hidden;
-  transition: background 0.5s ease;
+  transition: all 0.5s linear;
+  z-index: -1;
+
+  @include util.breakpoint(medium) {
+    position: static;
+    height: 100%;
+    z-index: 0;
+    inset: unset;
+    width: 100%;
+  }
 
   &--active {
+    z-index: 2;
     background-color: rgba(0, 0, 0, 0.5);
   }
 
   &__logo {
-    font-size: util.rem(32);
+    max-width: util.rem(65);
+    width: 100%;
   }
 
   &__list {
@@ -66,6 +89,16 @@
     flex-direction: column;
     transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 
+    @include util.breakpoint(medium) {
+      position: static;
+      inset: unset;
+      flex-direction: row;
+      padding: 0;
+      border: none;
+      width: 100%;
+      background-color: transparent;
+    }
+
     &--active {
       right: calc(80% - 100vw);
     }
@@ -78,15 +111,15 @@
     margin-top: 45px;
     padding: 25px;
     border-top: 1px solid #000;
+
+    @include util.breakpoint(medium) {
+      display: none;
+    }
   }
 
   &__social-media-container {
     width: 24px;
   }
-
-  // &__item:not(:last-child) {
-  //   margin-right: util.rem(20);
-  // }
 
   &__item {
     width: 100%;
@@ -97,6 +130,12 @@
       background-color: globals.$main;
       width: 75%;
       margin: util.rem(30) auto 0;
+
+      @include util.breakpoint(medium) {
+        margin: 0;
+        width: 100%;
+        background-color: globals.$white;
+      }
     }
   }
 
@@ -107,7 +146,10 @@
     color: globals.$darkGray;
 
     &--btn {
-      // color: globals.$white;
+      color: globals.$white;
+    }
+    @include util.breakpoint(medium) {
+      color: globals.$darkGray;
     }
   }
 }
@@ -120,6 +162,10 @@
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  @include util.breakpoint(medium) {
+    display: none;
+  }
 }
 .hamRotate.active {
   transform: rotate(45deg);

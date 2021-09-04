@@ -1,25 +1,30 @@
 class MyHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-            
               <section class="header__contact">
-                <article class="header__contact-item">
-                  <figure class="header__contact-image-container">
-                    <img class="header__content-image" src="/dist/assets/phone.svg" alt="phone icon" />
-                    <span class="header__contact-content">+381 65 541 84 76</span>
-                  </figure>
-                </article>
-                <article class="header__contact-item">
-                  <figure class="header__contact-image-container">
-                    <img class="header__content-image" src="/dist/assets/mail.svg" alt="email icon" />
-                    <span class="header__contact-content">info@rutann.rs</span>
-                  </figure>
-                </article>
+                <div class="wrapper">
+                  <section class="header__contact-body">
+                    <article class="header__contact-item">
+                    <figure class="header__contact-image-container">
+                      <img width="24" height="24" class="header__contact-image" src="./assets/icons/phone.svg" alt="phone icon" />
+                      <a href="tel:+381655418476" class="header__contact-info">+381 65 541 84 76</a>
+                    </figure>
+                  </article>
+                  <article class="header__contact-item">
+                    <figure class="header__contact-image-container">
+                      <img width="24" height="24" class="header__contact-image" src="./assets/icons/mail.svg" alt="email icon" />
+                      <a href="mailto:info@rutann.rs" class="header__contact-info">info@rutann.rs</a>
+                    </figure>
+                  </article>
+                  </section>
+                </div>
               </section>
 
               <div class="wrapper">
                 <section class="header__body">
-                <a href="/" class="nav__logo">LOGO</a>
+                <a href="/" class="nav__logo">
+                  <img class="nav__logo-image" src="./assets/logo.svg" alt="logo of company" />
+                </a>
 
                 <svg class="nav__toggle-btn hamRotate nav__toggle-btn--animation" viewBox="0 0 100 100" width="50">
     <path
@@ -51,18 +56,18 @@ class MyHeader extends HTMLElement {
                       <ul class="nav__social-media">
                       <li class="nav__social-media-container">
                         <a href="https://instagram.com/">
-                        <img src="/dist/assets/logo-instagram.svg" alt="instagram icon" />
+                        <img src="./assets/icons/logo-instagram.svg" alt="instagram icon" />
                         </a>
                       </li>
 
                       <li class="nav__social-media-container">
                         <a href="https://facebook.com/">
-                        <img src="/dist/assets/logo-facebook.svg" alt="facebook icon" />
+                        <img src="./assets/icons/logo-facebook.svg" alt="facebook icon" />
                         </a>
                       </li>
 
                       <li class="nav__social-media-container">
-                      <a href="https://whatsup.com/"><img src="/dist/assets/logo-whatsapp.svg" alt="whatsup icon" /></a>
+                      <a href="https://whatsup.com/"><img src="./assets/icons/logo-whatsapp.svg" alt="whatsup icon" /></a>
                       </li>
                     </ul>
                     </li>

@@ -8,7 +8,7 @@ const browserSync = require("browser-sync").create();
 const concat = require("gulp-concat");
 
 function html(cb) {
-  src("*.html").pipe(dest("dist/"));
+  src("./src/*.html").pipe(dest("dist/"));
   cb();
 }
 
@@ -29,10 +29,15 @@ function scripts(cb) {
   cb();
 }
 
+function assets(cb) {
+  src("./src/assets/**/*.*").pipe(dest("dist/assets"));
+  cb();
+}
+
 function browserSyncServe(cb) {
   browserSync.init({
     server: {
-      baseDir: ".",
+      baseDir: "./dist/",
     },
     notify: {
       styles: {
@@ -49,11 +54,18 @@ function browserSyncReload(cb) {
 }
 
 function watchTask() {
-  watch("*.html", browserSyncReload);
+  watch("./dist/*.html", browserSyncReload);
   watch(
-    ["src/scss/**/*.scss", "src/**/*.js", "/*.html"],
-    series(html, styles, scripts, browserSyncReload)
+    ["src/scss/**/*.scss", "src/**/*.js", "./dist/*.html", "src/assets/**/*.*"],
+    series(html, styles, scripts, assets, browserSyncReload)
   );
 }
 
-exports.default = series(html, styles, scripts, browserSyncServe, watchTask);
+exports.default = series(
+  html,
+  styles,
+  scripts,
+  browserSyncServe,
+  assets,
+  watchTask
+);

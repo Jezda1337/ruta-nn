@@ -1,8 +1,9 @@
 {
-  "name": "static-stine-generate-files",
+  "name": "ruta-nn",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "./",
   "scripts": {
   },
   "keywords": [],
