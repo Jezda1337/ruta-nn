@@ -45,11 +45,11 @@ class MyHeader extends HTMLElement {
                     </li>
 
                     <li class="nav__item">
-                      <a href="/about" class="nav__link">O nama</a>
+                      <a href="about.html" class="nav__link">O nama</a>
                     </li>
 
                     <li class="nav__item nav__item--btn">
-                      <a href="/form" class="nav__link nav__link--btn">Konkurisi</a>
+                      <a href="form.html" class="nav__link nav__link--btn">Konkurisi</a>
                     </li>
 
                     <li class="nav__item">

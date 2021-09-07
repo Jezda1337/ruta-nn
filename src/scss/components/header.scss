@@ -6,6 +6,10 @@
   max-height: util.rem(100);
   position: relative;
 
+  @include util.breakpoint(medium) {
+    max-height: util.rem(200);
+  }
+
   &__body {
     display: flex;
     align-items: center;
@@ -15,6 +19,7 @@
 
   &__contact {
     background-color: globals.$white;
+    padding: 2px 0;
   }
 
   &__contact-image-container {
@@ -24,10 +29,6 @@
 
   &__contact-image {
     margin-right: util.rem(5);
-
-    @include util.breakpoint(medium) {
-      min-width: 32px;
-    }
   }
 
   &__contact-content {
@@ -37,10 +38,6 @@
   &__contact-info {
     font-size: util.rem(12);
     color: globals.$darkGray;
-
-    @include util.breakpoint(medium) {
-      font-size: util.rem(14);
-    }
   }
 
   &__contact-body {
@@ -59,11 +56,10 @@
   z-index: -1;
 
   @include util.breakpoint(medium) {
-    position: static;
-    height: 100%;
+    height: auto;
+    top: 0;
+    position: relative;
     z-index: 0;
-    inset: unset;
-    width: 100%;
   }
 
   &--active {
@@ -74,6 +70,10 @@
   &__logo {
     max-width: util.rem(65);
     width: 100%;
+
+    @include util.breakpoint(medium) {
+      max-width: util.rem(88);
+    }
   }
 
   &__list {
@@ -90,12 +90,13 @@
     transition: right 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 
     @include util.breakpoint(medium) {
-      position: static;
-      inset: unset;
       flex-direction: row;
+      right: 0;
+      align-items: center;
+      justify-content: center;
       padding: 0;
-      border: none;
       width: 100%;
+      border: none;
       background-color: transparent;
     }
 
@@ -111,10 +112,6 @@
     margin-top: 45px;
     padding: 25px;
     border-top: 1px solid #000;
-
-    @include util.breakpoint(medium) {
-      display: none;
-    }
   }
 
   &__social-media-container {
@@ -126,15 +123,24 @@
     text-align: center;
     text-transform: uppercase;
 
+    &:last-child {
+      display: none;
+    }
+
     &--btn {
       background-color: globals.$main;
       width: 75%;
       margin: util.rem(30) auto 0;
+      transition: background 0.5s ease;
 
       @include util.breakpoint(medium) {
         margin: 0;
-        width: 100%;
+        width: auto;
         background-color: globals.$white;
+
+        &:hover {
+          background-color: globals.$mainDarker;
+        }
       }
     }
   }
@@ -144,12 +150,21 @@
     font-size: util.rem(24);
     padding: util.rem(10) 0;
     color: globals.$darkGray;
+    transition: all 0.5s ease;
+
+    @include util.breakpoint(medium) {
+      padding: 8px 15px;
+      &:hover {
+        color: white;
+      }
+    }
 
     &--btn {
       color: globals.$white;
-    }
-    @include util.breakpoint(medium) {
-      color: globals.$darkGray;
+
+      @include util.breakpoint(medium) {
+        color: globals.$darkGray;
+      }
     }
   }
 }
